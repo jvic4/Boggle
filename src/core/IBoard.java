@@ -5,16 +5,21 @@
  */
 package core;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author jordanvictor4
  */
 public interface IBoard {
     
-    public static final int NUMBER_OF_DICE = 16;
+//1.a.b adding constants
+        
+    public final int NUMBER_OF_DICE = 16;
     
-    public static final int GRID = 4;
-    
+    public final int GRID = 4;
+   
+  //2.b.a  adding method signatures
     public ArrayList shakeDice();
     
     public void populateDice();

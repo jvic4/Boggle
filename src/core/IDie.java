@@ -10,13 +10,15 @@ package core;
  * @author jordanvictor4
  */
 public interface IDie {
-    
-    public static final int NUMBER_OF_SIDES = 6;
-    
+    //part 1a adding constant
+    public final int NUMBER_OF_SIDES = 6;
+    //parts 2.a-c adding method signatures
     public void displayLetters();
     
     public void addLetter(String letter);
     
     public String rollDie();
+
+
     
 }

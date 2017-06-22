@@ -9,6 +9,7 @@ import core.Board;
 import inputOutput.ReadDataFile;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import userInterface.BoggleUi;
 
 /**
  *
@@ -16,13 +17,15 @@ import javax.swing.JOptionPane;
  */
 public class Boggle {
     
+    //1.a.c.b.d creating the member variables
     private static ArrayList<String> boggleData = new ArrayList();
     
     private static ArrayList<String> dictionaryData = new ArrayList();
     
-    private static String dataFileName = new String("BoggleData.txt");
+    private static String dataFileName = new String("../data/BoggleData.txt");
             
-    private static String dictionaryFileName = new String ("Dictionary.txt");
+    private static String dictionaryFileName = new String("../data/Dictionary.txt");
+    
     
     
             
@@ -32,20 +35,30 @@ public class Boggle {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("Welcome to Boggle!");
-        JOptionPane.showMessageDialog(null, "Let's Play Boggle!");
+        //System.out.println("Welcome to Boggle!");
+        //JOptionPane.showMessageDialog(null, "Let's Play Boggle!");
         
+        // 1a.b instantiate instance of class readdatafile boggledata and call populatedata
         ReadDataFile data = new ReadDataFile(dataFileName);
         data.populateData();
         
+        // 1c.d instantiate instance of class readdatafile dictionary data and call populatedata
         ReadDataFile dictionary = new ReadDataFile(dictionaryFileName);
         dictionary.populateData();
-        
+       
+        // 1e.f instantiate instance of class Board and call getdata, call populateDice
         Board board = new Board(data.getData(), dictionary.getData());
         board.populateDice();
         
-        System.out.println("There are " + dictionary.getData().size() + "entries in the dictionary" );
+        BoggleUi Ui = new BoggleUi(board);
         
+        //set member variabble of class ArrayList stores Boggle data to method shakedice in baord
+        boggleData = board.shakeDice();
+       
+        //output to ide
+        //System.out.println("There are " + dictionary.getData().size() + " entries in the dictionary" );
+       
+           
         
     }
 

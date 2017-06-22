@@ -16,28 +16,38 @@ import java.util.Scanner;
  *
  * @author jordanvictor4
  */
+//part 1 implementing IReadDataFile
 public class ReadDataFile implements IReadDataFile
 {
+    //part 2.a-c adding member variables
     private Scanner inputFile;
     private String dataFileName;
     private ArrayList<String> data;
-    
+   
+    //part 3 custom constructor and instantiating the member variable of type ArrayList
     public ReadDataFile(String fileName)
     {
         dataFileName = fileName;
         data = new ArrayList<String>();
     }
-    
+    //part 5 implement method populate data
     @Override
     public void populateData()
     {
+        
+       
         try
         {
-            URL url = getClass().getResource(dataFileName);
+            //instntiate an instance of JavaAPI
+            URL url = getClass().getResource("/data/"+dataFileName);
+           
+            //instantiate class file
             File file = new File(url.toURI());
             
+            //initialize scanner
             inputFile = new Scanner(file);
-            
+
+            //loop through the data
             while(inputFile.hasNext())
             {
                 data.add(inputFile.next());
@@ -48,17 +58,18 @@ public class ReadDataFile implements IReadDataFile
             System.out.println(ex.toString());
             ex.printStackTrace();
             
-        }
+        } 
         finally
-        
-        
-        
-        
-        
-    }        
-            
-}
-
-    public Object getData() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        {
+            if(inputFile != null)
+                inputFile.close();
+        }
+     
     }
+    
+    //part 4 adding the getter
+    public ArrayList<String> getData() {
+        return data;
+    }
+
+}

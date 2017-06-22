@@ -9,6 +9,9 @@ package inputOutput;
  *
  * @author jordanvictor4
  */
+//part 1 adding method signature popoulate data
 public interface IReadDataFile {
+    
+    public void populateData();
     
 }
