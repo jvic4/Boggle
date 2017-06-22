@@ -10,6 +10,7 @@ import java.util.Random;
 //1a implements Iboard
 public class Board implements IBoard
 {
+
 //2.a.b.c adding member variables
     private ArrayList<String> boggleData;
     
@@ -27,8 +28,9 @@ public class Board implements IBoard
     dictionaryData = dictionary;
     boggleDice = new ArrayList<Die>();
     
+
     }
-    
+
     @Override
     public ArrayList shakeDice()
     {
@@ -65,6 +67,7 @@ public class Board implements IBoard
             }
         return storeGameData;
     }
+
  //4a-c  implement method populatedice
     @Override 
     public void populateDice()
@@ -108,3 +111,4 @@ public class Board implements IBoard
 
    
  
+
